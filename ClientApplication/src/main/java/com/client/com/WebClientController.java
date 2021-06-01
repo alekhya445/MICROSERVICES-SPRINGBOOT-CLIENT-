@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -59,11 +60,17 @@ public class WebClientController {
 			URI objects = restTemplate.postForLocation(URL, patients);
 			return "AddedPatientsSuccesfully";
 		}
+		
+		@PutMapping("/patients_record4")
+		public String getAllPatients1(@RequestBody Patients patients) {
+			String URL ="http://localhost:2222/Patients/update";
+			return "UpdatedSuccesfullu";
+		}
 //		
 
 
 	
-//		@PutMapping("/patients_record")
+//		@PostMapping("/patients_record")
 //		public List<Object> getAllPatients1() {
 //			String URL= "http://localhost:2222/Patients/addPatients";
 //			Object[] objects = restTemplate.getForObject(URL, Object[].class);
